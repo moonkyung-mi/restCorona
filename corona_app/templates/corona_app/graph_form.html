@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %} 
+<h1>서울 자치구별 휴계 음식점 현황</h1>
+<h2>자치구 검색</h2>
+<form id='graph_guSearchForm' method="post">
+    {% csrf_token %}
+    <select name="date" id="date">
+        <option value="">날짜선택</option>
+        {% for date in date_list %}   
+        <option value="{{ date }}">{{ date }}</option>
+        {% endfor %}
+    </select>
+        
+    <input type="submit" value="검색">
+</form><br><br>
+
+{% comment %} 검색 결과 출력할 div {% endcomment %}
+<div id="searchResultBox"></div>
+
+{% endblock content %}
